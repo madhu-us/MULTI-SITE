@@ -7,3 +7,13 @@ on:
     secrets:
       envPAT:
         required: true
+jobs:
+  testing:
+    name: Run Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+  
+    

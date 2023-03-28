@@ -39,7 +39,7 @@ jobs:
     if: ${{ github.event.inputs.NodeValue == 'true' }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.choices }}
-    env: ${{ env.name }}  ${{ env.secret }}
+    #env: ${{ env.name }}  ${{ env.secret }}
          
     steps:
       - name: Setup checkout environment

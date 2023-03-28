@@ -40,11 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.choices }}
     
-    name: dev
-    steps: 
-      - with: 
-          app-name: ${{ env.name }}
-          hidden-data: ${{ env.secret }}
+    name: |
+      echo ${{ env.name }}
+      echo ${{ env.secret }}
           
         
     

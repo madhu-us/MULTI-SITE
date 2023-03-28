@@ -39,12 +39,11 @@ jobs:
     if: ${{ github.event.inputs.NodeValue == 'true' }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.choices }}
-    #some. ${{ env.name }}
-    #same. ${{ env.secret }}
+    env: ${{ env.name }}  ${{ env.secret }}
          
     steps:
-      - name: Setup Go environment
-        uses: actions/setup-go@v4.0.0
+      - name: Setup checkout environment
+        uses: actions/checkout@v3
        # with:
           # The Go version to download (if necessary) and use. Supports semver spec and ranges.
           #go-version: # optional

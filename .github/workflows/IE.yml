@@ -1,6 +1,6 @@
 name: IE-Multi-env in Multi-site
 on:
-  push:
+ # push:
   workflow_dispatch:
   
 jobs:

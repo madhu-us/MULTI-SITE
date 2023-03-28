@@ -1,0 +1,13 @@
+name: IE-Multi-env in Multi-site
+on:
+  push:
+  workflow_dispatch:
+  
+jobs:
+  Ireland:
+    name: Run this Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3

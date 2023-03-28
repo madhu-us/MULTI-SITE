@@ -1,6 +1,13 @@
 on:
-  push:
+  #push:
   workflow_dispatch:
+    inputs:
+       choices:
+         type: choice
+         description: Please select the Environment where you want to deploy
+         options:
+         - DEV
+         - QA
   workflow_call:
     inputs:
       config-path:

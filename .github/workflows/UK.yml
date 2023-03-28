@@ -2,12 +2,49 @@ name: Multi-env in Multi-site
 on:
   push:
   workflow_dispatch:
+   inputs:
+       choices:
+         type: choice
+         description: Please select the Environment where you want to deploy
+         options:
+         - DEV
+         - QA 
+       NodeValue:
+         type: boolean
+         description: "select Node web app"
+         default: true 
+       CMValue:
+         type: boolean
+         description: "select CM web app"
+         default: false
+       CDValue:
+         type: boolean
+         description: "select CD web app"
+         default: false
+env:
+  name: ${{ vars.NAME }}
+  secret: ${{ secrets.CLASS }}
   
 jobs:
-  required:
+  uk:
     name: Run this Build
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
+        
+  deploy:
+    needs: uk
+    if: ${{ github.event.inputs.NodeValue == 'true' }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.choices }}
+    
+    name: dev
+    steps: 
+      - with: 
+          app-name: ${{ env.name }}
+          hidden-data: ${{ env.secret }}
+          
+        
+    

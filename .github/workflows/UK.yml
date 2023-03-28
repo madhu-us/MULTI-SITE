@@ -39,10 +39,8 @@ jobs:
     if: ${{ github.event.inputs.NodeValue == 'true' }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.choices }}
-    
-    name: |
-      echo ${{ env.name }}
-      echo ${{ env.secret }}
+    #some. ${{ env.name }}
+    #same. ${{ env.secret }}
           
         
     

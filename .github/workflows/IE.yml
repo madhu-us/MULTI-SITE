@@ -18,7 +18,7 @@ jobs:
   Ireland:
     #reusable_workflow_job:
     runs-on: ubuntu-latest
-    environment: production
+    environment: DEV
     steps:
     - uses: actions/checkout@v3
       with:

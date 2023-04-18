@@ -10,7 +10,7 @@ on:
         
         
 jobs:
-   file:
+   Multi-IE:
      
      #if: github.ref ** 'refs/heads/main'
      uses: ./.github/workflows/IE.yml
@@ -19,3 +19,13 @@ jobs:
        name: .github/IE.yml
      secrets:
        CLASS: ${{ secrets.CLASS }}
+       
+   Multi-kent:
+      uses: ./.github/workflows/Kent.yml
+      with:
+        name: .github/Kent.yml
+      secrets:
+        CLASS: ${{ secrets.CLASS }}
+        
+       
+       

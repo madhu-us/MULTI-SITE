@@ -14,7 +14,7 @@ jobs:
      strategy:
        matrix:
          target: [DEV, QA]
-     if: github.ref ** 'refs/heads/main'
+     #if: github.ref ** 'refs/heads/main'
      uses: ./.github/workflows/IE.yml
      with:
         target: ${{ matrix.target }}

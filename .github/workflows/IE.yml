@@ -4,6 +4,7 @@ on:
   workflow_call:
      inputs:
        NAME:
+       PATH:
          required: true
          type: string
      secrets:
@@ -24,3 +25,4 @@ jobs:
       with:
         class: ${{ secrets.CLASS }}
         name: ${{ inputs.NAME }}
+        path: ${{ inputs.PATH }}

@@ -2,12 +2,25 @@ name: IE-Multi-env in Multi-site
 on:
  # push:
   workflow_call:
+     inputs:
+      Deploy-to:
+        type: string
+        description: Select the environment
+        required: true  
+env:
+   name: ${{ vars.NAME }}
+   school: ${{ secrets.CLASS }}
   
 jobs:
   Ireland:
     name: Run this Build
     runs-on: ubuntu-latest
+    environment: ${{ inputs.Deploy-to }}
 
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
+      - run: |
+          echo "from ${{ inputs.Deploy-to }} environment"
+          echo $name
+          echo $school

@@ -21,11 +21,11 @@ jobs:
        CLASS: ${{ secrets.CLASS }}
        
    Multi-kent:
-      uses: ./.github/workflows/Kent.yml
-      with:
-        name: .github/Kent.yml
-      secrets:
-        CLASS: ${{ secrets.CLASS }}
+     uses: ./.github/workflows/Kent.yml
+     with:
+       name: .github/Kent.yml
+     secrets:
+       CLASS: ${{ secrets.CLASS }}
         
        
        

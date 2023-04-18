@@ -1,13 +1,24 @@
 name: kent-Multi-env in Multi-site
 on:
  # push:
-  workflow_dispatch:
+  workflow_call:
+     inputs:
+       NAME:
+         required: true
+         type: string
+     secrets:
+       CLASS:
+         required: true  
   
 jobs:
   kent:
     name: Run this Build
     runs-on: ubuntu-latest
+    environment: DEV
 
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
+        with:
+          class: ${{ secrets.CLASS }}
+          name: ${{ inputs.NAME }}

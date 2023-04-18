@@ -3,10 +3,11 @@ on:
  # push:
   workflow_call:
      inputs:
-       Deploy-to:
-         type: string
-         description: Select the environment
-         required: true  
+       build_choices:
+        type: string
+        description: Please select the build tag
+        required: true
+        
 env:
    name: ${{ vars.NAME }}
    school: ${{ secrets.CLASS }}

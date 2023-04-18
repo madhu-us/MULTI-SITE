@@ -16,6 +16,6 @@ jobs:
      uses: ./.github/workflows/IE.yml
         
      with:
-       config-path: .github/IE.yml
+       name: .github/IE.yml
      secrets:
        CLASS: ${{ secrets.CLASS }}

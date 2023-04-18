@@ -12,7 +12,7 @@ on:
   
 jobs:
   kent:
-    name: Run this Build
+    name: Kent
     runs-on: ubuntu-latest
     environment: DEV
 

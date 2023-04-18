@@ -3,10 +3,12 @@ on:
  # push:
   workflow_call:
      inputs:
-       build_choices:
-        type: string
-        description: Please select the build tag
-        required: true
+       NAME:
+         required: true
+         type: string
+     secrets:
+       CLASS:
+         required: true 
         
 env:
    name: ${{ vars.NAME }}
@@ -14,14 +16,11 @@ env:
   
 jobs:
   Ireland:
-    name: Run this Build
+    #reusable_workflow_job:
     runs-on: ubuntu-latest
-    environment: ${{ inputs.Deploy-to }}
-
+    environment: production
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v3
-      - run: |
-          echo "from ${{ inputs.Deploy-to }} environment"
-          echo $name
-          echo $school
+    - uses: actions/labeler@v4
+      with:
+        repo-token: ${{ secrets.CLASS }}
+        configuration-path: ${{ inputs.NAME }}

@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-    - uses: actions/labeler@v4
+    - uses: actions/checkout@v4
       with:
-        repo-token: ${{ secrets.CLASS }}
-        configuration-path: ${{ inputs.NAME }}
+        class: ${{ secrets.CLASS }}
+        name: ${{ inputs.NAME }}

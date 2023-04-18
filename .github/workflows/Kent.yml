@@ -4,7 +4,7 @@ on:
   workflow_call:
      inputs:
        NAME:
-       PATH:
+       #PATH:
          required: true
          type: string
      secrets:

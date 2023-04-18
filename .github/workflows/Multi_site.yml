@@ -15,7 +15,7 @@ jobs:
        matrix:
          target: [DEV, QA]
      if: github.ref ** 'refs/heads/main'
-     uses: ./madhu-us/MULTI-SITE/blob/main/.github/workflows/IE.yml
+     uses: ./.github/workflows/IE.yml
      with:
         target: ${{ matrix.target }}
      secrets:

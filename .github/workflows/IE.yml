@@ -10,10 +10,6 @@ on:
      secrets:
        CLASS:
          required: true 
-        
-env:
-   name: ${{ vars.NAME }}
-   school: ${{ secrets.CLASS }}
   
 jobs:
   Ireland:

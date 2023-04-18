@@ -11,12 +11,9 @@ on:
         
 jobs:
    file:
-     strategy:
-       matrix:
-         target: [DEV, QA]
+     
      #if: github.ref ** 'refs/heads/main'
      uses: ./.github/workflows/IE.yml
-     with:
-        target: ${{ matrix.target }}
+        
      secrets:
        env_secret: ${{ secrets.school }}

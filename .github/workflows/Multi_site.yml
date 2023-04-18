@@ -16,4 +16,4 @@ jobs:
      uses: ./.github/workflows/IE.yml
         
      secrets:
-       school: ${{ secrets.school }}
+       school: ${{ secrets.CLASS }}

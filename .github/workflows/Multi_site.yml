@@ -1,14 +1,22 @@
-Name: muLti-sIte fOR ORGANIZATION
+name: muLti-sIte fOR ORGANIZATION
 
 on:
-  workflow_dispacth:
+  workflow_dispatch:
+     inputs:
+      Deploy-to:
+        type: string
+        description: Select the environment
+        required: true  
         
         
-job:
-   file-1:
-   if: github.ref ** 'refs/heads/main'
-   uses: madhu-us/MULTI-SITE/blob/main/.github/workflows/IE.yml
-   with:
-      mul_env: DEV
-  # secrets:
-   #  env_secret: 
+jobs:
+   file:
+     strategy:
+       matrix:
+         target: [DEV, QA]
+     if: github.ref ** 'refs/heads/main'
+     uses: madhu-us/MULTI-SITE/blob/main/.github/workflows/IE.yml@v1
+     with:
+        target: ${{ matrix.target }}
+     secrets:
+       env_secret: ${{ secrets.school }}

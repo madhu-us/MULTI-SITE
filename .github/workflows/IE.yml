@@ -4,13 +4,15 @@ on:
   workflow_call:
      inputs:
        NAME:
-       PATH:
+     #  PATH:
          required: true
          type: string
      secrets:
        CLASS: 
       # IE_SECRET: 
          required: true 
+env:
+  path: ${{ vars.PATH }}
   
 jobs:
   Ireland:

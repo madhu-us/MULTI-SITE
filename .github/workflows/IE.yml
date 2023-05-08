@@ -24,4 +24,4 @@ jobs:
       with:
         class: ${{ secrets.CLASS }}
         name: ${{ inputs.NAME }}
-        path: ${{ inputs.PATH }}
+        path: ${{ env.path }}

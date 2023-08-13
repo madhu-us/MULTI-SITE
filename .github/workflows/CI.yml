@@ -9,22 +9,21 @@ on:
       Tags: 
          description: 'GENX_*/*'
          required: true
- # workflow_dispatch:
-   # inputs:
-    #   choices:
-     #    type: choice
-      #   description: Please select the Environment where you want to deploy
-       #  options:
-        # - DEV
-         #- QA
-  
+ 
+env:
+  class: ${{secrets.CLASS}}
+  name: ${{vars.name}}
 jobs:  
   Build:
     runs-on: ubuntu-latest
     environment: ${{ inputs.Deploy-to }}
-    if: ${{github.event.inputs.tags == 'true'}}
+    if: ${{github.event.inputs.environment == tags == 'true'}}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
+      - run:
+          echo "from ${{ inputs.Deploy-to }} environment"
+          echo "${{env.class}}"
+          echo "${{env.name}}   

@@ -7,8 +7,8 @@ on:
         description: Select the environment
         required: true
       Tags: 
-         description: 'GENX_*/*'
-         required: true
+         description: 'tags'
+         type: 'GENX_*/*'
  
 env:
   class: ${{secrets.CLASS}}

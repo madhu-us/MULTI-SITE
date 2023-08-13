@@ -17,7 +17,9 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     environment: ${{ inputs.Deploy-to }}
-    if: ${{github.event.inputs.environment == tags == 'true'}}
+   # needs: [Build]    
+    if: ${{ (github.events.tag.from != 'uk_stage/1.0') && (github.events.tag != 'GENX*/*') }
+   # if: ${{github.event.inputs.environment == tags == 'true'}}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3

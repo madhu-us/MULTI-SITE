@@ -2,35 +2,29 @@ on:
   #push:
   workflow_dispatch:
     inputs:
-       choices:
-         type: choice
-         description: Please select the Environment where you want to deploy
-         options:
-         - DEV
-         - QA
-  workflow_call:
-    inputs:
-      config-path:
+      Deploy-to:
+        type: environment
+        description: Select the environment
         required: true
-        type: string
-    secrets:
-      envPAT:
-        required: true
-jobs:
-  testing:
-    name: Run Build
+      Tags: 
+         description: 'GENX_*/*'
+         required: true
+ # workflow_dispatch:
+   # inputs:
+    #   choices:
+     #    type: choice
+      #   description: Please select the Environment where you want to deploy
+       #  options:
+        # - DEV
+         #- QA
+  
+jobs:  
+  Build:
     runs-on: ubuntu-latest
-
+    environment: ${{ inputs.Deploy-to }}
+    if: ${{github.event.inputs.tags == 'true'}}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3
-      
-  GB:
-    needs: testing
-    name: UK site
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: echo dev
-        run: |
-          echo "this is for dev gb"
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}

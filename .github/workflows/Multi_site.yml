@@ -17,14 +17,14 @@ jobs:
         
      with:
        name: .github/IE.yml
-     #secrets:
+     secrets: inherit
       # CLASS: ${{ secrets.CLASS }}
        
    Multi-kent:
      uses: ./.github/workflows/Kent.yml
      with:
        name: .github/Kent.yml
-     #secrets:
+     secrets: inherit
       # CLASS: ${{ secrets.CLASS }}
         
        

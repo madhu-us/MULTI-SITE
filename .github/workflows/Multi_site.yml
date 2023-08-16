@@ -15,15 +15,15 @@ jobs:
      #if: github.ref ** 'refs/heads/main'
      uses: ./.github/workflows/IE.yml
         
-     with:
-       name: .github/IE.yml
+    # with:
+     #  name: .github/IE.yml
      secrets: inherit
       # CLASS: ${{ secrets.CLASS }}
        
    Multi-kent:
      uses: ./.github/workflows/Kent.yml
-     with:
-       name: .github/Kent.yml
+    # with:
+     #  name: .github/Kent.yml
      secrets: inherit
       # CLASS: ${{ secrets.CLASS }}
         

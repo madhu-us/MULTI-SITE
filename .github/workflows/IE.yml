@@ -2,15 +2,20 @@ name: IE-Multi-env in Multi-site
 on:
  # push:
   workflow_call:
-     inputs:
-       NAME:
+  workflow_dispatch:
+    inputs:
+      Deploy-to:
+        type: environment
+        description: Select the environment
+        required: true
+      NAME:
      #  PATH:
          required: true
          type: string
-     secrets:
-       CLASS: 
+      #secrets: 
+       # CLASS: 
       # IE_SECRET: 
-         required: true 
+        #required: true 
 env:
   path: ${{ vars.PATH }}
   

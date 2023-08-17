@@ -17,7 +17,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT }}
         run: |
-          git config --unset-all http.https://github.com/.extraheader
+          
           git config user.name "madhu-us"
           git config user.email madhupole33@gmail.com
           git checkout -b ${{ github.ref_name }}
@@ -35,7 +35,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT }}
         run: |
-          git config --unset-all http.https://github.com/.extraheader
+          
           git config user.name "github actions"
           git config user.email actions@github.com
           git remote set-url origin https://${GH_TOKEN}@github.com/${{ github.repository }}

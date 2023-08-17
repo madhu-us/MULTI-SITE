@@ -3,12 +3,18 @@ name: Deployments
 on:
   push:
     branches: ['v*.*.*']
+  workflow_dispatch:
+    inputs:
+      Deploy-to:
+        type: environment
+        description: Select the environment
+        required: true  
 
 jobs:
   make_release:
     if: github.ref_type == 'branch'
     name: Deploy ${{ github.ref_name }}
-    environment: release
+    environment: ${{ inputs.Deploy-to }}
     runs-on: ubuntu-latest
     steps:
       -

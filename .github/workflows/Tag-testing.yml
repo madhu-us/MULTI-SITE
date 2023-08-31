@@ -28,9 +28,9 @@ jobs:
         version=${{ github.event.inputs.version }}
         # GENX_UAT_SP49_26Aug23/uk1.23
         for region in "${regions[@]}"; do
-          release_name="GENX_UAT_SP49_$(date +'%d%b%y')/${region}${version}"
+         # release_name="GENX_UAT_SP49_$(date +'%d%b%y')/${region}${version}"
           tag_name="GENX_UAT_SP49_$(date +'%d%b%y')/${region}${version}"
-          git release $release_name
+       
           git tag $tag_name
           git push origin $tag_name
         done

@@ -3,6 +3,9 @@ on:
   push:
   workflow_dispatch:
 
+env:
+    GH_TOKEN: ${{ github.token }}  
+
 jobs:
   deletion-of-tags:
     runs-on: ubuntu-latest

@@ -1,0 +1,19 @@
+name: Deletion of release versions
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  deletion-of-tags:
+    runs-on: ubuntu-latest
+    name: releases
+    
+    steps:
+    - name: checkout
+      uses: actions/checkout/@v3
+         
+   
+    - name: delete
+      run: |
+         Run git tag --delete GENX_UAT_SP49_05Sep23/uk1.6
+         

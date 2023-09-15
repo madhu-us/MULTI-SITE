@@ -15,5 +15,6 @@ jobs:
    
     - name: delete
       run: |
-         git tag --delete GENX_QA_SP49_15Sep23/uk1.3
+         $ git push origin --delete origin GENX_QA_SP49_15Sep23/uk1.3
+         $ git tag -l
          

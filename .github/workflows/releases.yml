@@ -1,6 +1,6 @@
 name: list of release versions
 on:
-  push:
+ # push:
   workflow_dispatch:
 
 env:

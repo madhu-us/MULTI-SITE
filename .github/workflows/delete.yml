@@ -18,5 +18,5 @@ jobs:
    
     - name: deletion of Releases
       run: |
-        -H "Authorization: Bearer_TOKEN" \
+        git "Authorization: Bearer_TOKEN" \
         git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/releases | awk '$2 < '$(date -d '60 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git releases -d {} && git push origin --delete {}

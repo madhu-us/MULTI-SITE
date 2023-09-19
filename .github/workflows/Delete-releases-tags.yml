@@ -13,7 +13,7 @@ jobs:
 
       - name: Delete old tags and releases
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          Bearer_TOKEN: ${{ secrets.BEARER_TOKEN }}
         run: |
           #!/bin/bash
           set -e
@@ -34,6 +34,6 @@ jobs:
           for release_id in $(curl -s -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/$OWNER/$REPO/releases" | jq -r '.[].id'); do
             # Customize the condition to keep specific releases and delete the rest
             if [[ "$release_id" != "12345678" ]]; then
-              curl -X DELETE -H "Authorization: token $GH_TOKEN" "https://api.github.com/repos/$OWNER/$REPO/releases/$release_id"
+              curl -X DELETE -H "Authorization: token $Bearer_TOKEN" "https://api.github.com/repos/$OWNER/$REPO/releases/$release_id"
             fi
           done

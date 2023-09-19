@@ -18,5 +18,6 @@ jobs:
    
     - name: deletion of Releases
       run: |
-        curl -H 'Authorization: Bearer_TOKEN --https://api.github.com/repos/madhu-us/MULTI-SITE'
+        curl -L \
+        curl -H 'Authorization: Bearer_TOKEN' --url= "https://api.github.com/repos/madhu-us/MULTI-SITE"
         git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/releases | awk '$2 < '$(date -d '30 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git releases -d {} && git push origin --delete {}

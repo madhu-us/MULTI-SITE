@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-    Bearer_TOKEN: ${{ screats.bearertoken }}  
+    Bearer_TOKEN: ${{ screts.BEARERTOKEN }}  
 
 jobs:
   deletion-of-tags:

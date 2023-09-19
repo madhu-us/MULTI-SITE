@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-    GH_TOKEN: ${{ github.token }}  
+    Bearer_TOKEN: ${{ screats.bearertoken }}  
 
 jobs:
   deletion-of-tags:
@@ -18,5 +18,8 @@ jobs:
    
     - name: delete
       run: |
-          git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/releases | awk '$2 < '$(date -d '20 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git releases -d {} && git push origin --delete {}
-          
+          curl -L \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer_TOKEN" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/OWNER/REPO/releases

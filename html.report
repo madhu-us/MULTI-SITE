@@ -1,1 +1,10 @@
-path: /report
+{
+releasesReporter: {
+
+      type : 'html',
+
+      dir : 'releases/',
+
+      file: 'releases.txt'
+}
+};

@@ -19,8 +19,8 @@ jobs:
           set -e
 
           # Replace 'your_username' and 'your_repository' with your GitHub username and repository name
-          OWNER="your_username"
-          REPO="your_repository"
+          OWNER="madhu-us"
+          REPO="MULTI-SITE"
 
           # Delete old tags
           for tag in $(git ls-remote --tags --refs "https://github.com/$OWNER/$REPO.git" | cut -d"/" -f3-); do

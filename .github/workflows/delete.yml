@@ -18,7 +18,5 @@ jobs:
    
     - name: delete
       run: |
-          gh release delete GENX_QA_SP49_15Sep23/uk1.3
-          --cleanup-tag
-          -y
+          git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/tags | awk '$2 < '$(date -d '20 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git tag -d {} && git push origin --delete {}
           

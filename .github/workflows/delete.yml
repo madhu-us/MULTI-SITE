@@ -21,5 +21,5 @@ jobs:
         curl -L \
         -H "Accept: application/vnd.github+json" \
         -H 'Authorization: Bearer_TOKEN' 
-        --url= "https://api.github.com/repos/madhu-us/MULTI-SITE/releases"
+        -url 'https://api.github.com/repos/madhu-us/MULTI-SITE/releases'
         git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/releases | awk '$2 < '$(date -d '30 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git releases -d {} && git push origin --delete {}

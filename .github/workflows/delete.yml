@@ -19,4 +19,4 @@ jobs:
     - name: deletion of Releases
       run: |       
          git remote set-url origin https://Bearer_TOKEN@github.com/madhu-us/MULTI-SITE
-         git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/releases | awk '$2 < '$(date -d '30 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git releases -d {} && git push origin --delete {GENX_QA_SP49_*/uk1.*}
+         git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/releases | awk '$2 < '$(date -d '30 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git releases -d {} && git push origin --delete {GENX_QA_SP49_13Aug23/uk1.51}

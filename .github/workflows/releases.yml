@@ -30,6 +30,7 @@ jobs:
     - run: mkdir -p path/to/artifact
 
     - run: path/to/artifact/world.txt
+    
     - name: list
       uses: actions/upload-artifact@v3
       with:

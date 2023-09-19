@@ -18,5 +18,5 @@ jobs:
    
     - name: delete
       run: |
-          git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/tags | awk '$2 < '$(date -d '20 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git tag -d {} && git push origin --delete {}
+          git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/releases | awk '$2 < '$(date -d '20 days ago' +%s)'' | cut -d ' ' -f 1 | xargs -I {} git releases -d {} && git push origin --delete {}
           

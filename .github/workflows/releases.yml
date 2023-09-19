@@ -27,7 +27,7 @@ jobs:
     - name: Archive build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: list-of-releases
+        name: releases
         retention-days: 2
-        path: list-of-releases.txt
+        path: robot/tests/releases.html
       

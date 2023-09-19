@@ -25,13 +25,13 @@ jobs:
           https://api.github.com/repos/madhu-us/MULTI-SITE/releases
           
     - name: listing
-    - uses: actions/checkout@v3
+      uses: actions/checkout@v3
 
     - run: mkdir -p path/to/artifact
 
     - run: echo hello > path/to/artifact/world.txt
-
-    - uses: actions/upload-artifact@v3
+    - name: list
+      uses: actions/upload-artifact@v3
       with:
         name: my-artifact
         path: path/to/artifact/world.txt

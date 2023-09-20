@@ -22,4 +22,4 @@ jobs:
          export GIT_ASKPASS="echo Bearer_TOKEN"  # Replace $TOKEN with your actual token
          git fetch --prune --tags
          git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/tags | awk '$2 < '$(date -d '60 days ago' +%s)''{}
-         cut -d ' ' -f 1 | xargs -I {} git tag -d {} && git push origin --delete {}
+         cut -d ' ' -f 1 | xargs -I {refs/tags} git tag -d {refs/tags} && git push origin --delete {refs/tags}

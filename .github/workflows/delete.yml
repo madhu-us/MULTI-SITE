@@ -21,7 +21,7 @@ jobs:
          
          export GIT_ASKPASS="echo Bearer_TOKEN"  # Replace $TOKEN with your actual token
          git fetch --prune --tags
-         git push -u origin tags
+         git push -u origin --tags
 
          # Or git 2.37 Q2 2022+
          git config --global push.autoSetupRemote true

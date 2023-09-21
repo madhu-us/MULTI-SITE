@@ -7,6 +7,19 @@ env:
     Bearer_TOKEN: ${{ secrets.BEARERTOKEN }}  
 
 jobs:
+  tags-ref:
+    runs-on: ubuntu-latest
+    name: ref
+    steps:
+      - name: Branch
+        run:  echo "Github Ref = ${{ github.ref }}"
+              echo "Github Ref Name = ${{ github.ref_name }}"
+              echo "Github Workflow Branch Name = ${{ github.event.push.head_branch }}"
+    
+  ref:
+    if: ${{ github.ref == 'refs/heads/develop' }} && ${{ github.event.push.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    name: Run command
   delete-releases:
     runs-on: ubuntu-latest
     name: releases

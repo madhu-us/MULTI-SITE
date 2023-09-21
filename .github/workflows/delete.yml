@@ -37,10 +37,10 @@ jobs:
     - name: Create Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: branch-list
-        path: branch-list.txt    
+        name: tags-list
+        path: tags-list.txt    
    
     - name: deleting tags
       run: |
-         man touch
-         cut -d ' ' -f 1 | refs/tags xargs -I {} git tag -d {} && git push origin --delete {}
+         --reference= tags-list.txt
+         cut -d tags-list.txt -f 1 | refs/tags xargs -I {} git tag -d {} && git push origin --delete {}

@@ -42,5 +42,5 @@ jobs:
    
     - name: deleting tags
       run: |
-         
+         man touch
          cut -d ' ' -f 1 | refs/tags xargs -I {} git tag -d {} && git push origin --delete {}

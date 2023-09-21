@@ -7,19 +7,12 @@ env:
     Bearer_TOKEN: ${{ secrets.BEARERTOKEN }}  
 
 jobs:
-  tags-ref:
+  ref:
     runs-on: ubuntu-latest
-    name: ref
     steps:
-      - name: Branch
+      - name: tag
         run:  echo "Github Ref = ${{ github.ref }}"
               echo "Github Ref Name = ${{ github.ref_name }}"
-              echo "Github Workflow Branch Name = ${{ github.event.push.head_branch }}"
-    
-  ref:
-    if: ${{ github.ref == 'refs/heads/develop' }} && ${{ github.event.push.conclusion == 'success' }}
-    runs-on: ubuntu-latest
-    name: Run command
   delete-releases:
     runs-on: ubuntu-latest
     name: releases
@@ -33,10 +26,10 @@ jobs:
       run: |       
          
          export GIT_ASKPASS="echo Bearer_TOKEN"  # Replace $TOKEN with your actual token
-         git fetch --prune --releases
-         git push -u origin --releases
+         git fetch --prune --tags
+         git push -u origin --tags
 
          # Or git 2.37 Q2 2022+
          git config --global push.autoSetupRemote true
          git push
-         git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/releases | awk '$2 < '$(date -d '60 days ago' +%s)''{} | cut -d ' ' -f 1 | xargs -I {} git tag -d {} && git push origin --delete {}
+         git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/tags | awk '$2 < '$(date -d '60 days ago' +%s)''{} | cut -d ' ' -f 1 | refs/tags xargs -I {} git tag -d {} && git push origin --delete {}

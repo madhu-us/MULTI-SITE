@@ -34,13 +34,9 @@ jobs:
          git push
          git for-each-ref --sort=taggerdate --format '%(refname:short) %(taggerdate:raw)' refs/tags | awk '$2 < '$(date -d '60 days ago' +%s)''{} > tags-list.txt
 
-    - name: Create Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: tags-list
-        path: tags-list.txt    
+       
    
     - name: deleting tags
       run: |
-         --reference= tags-list.txt
+         git push origin :refs/tags
          cut -d tags-list.txt -f 1 | refs/tags xargs -I {} git tag -d {} && git push origin --delete {}

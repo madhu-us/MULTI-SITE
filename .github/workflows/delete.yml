@@ -38,5 +38,5 @@ jobs:
    
     - name: deleting tags
       run: |
-         git push origin :refs/tags
+         git push origin refs/tags
          cut -d tags-list.txt -f 1 | refs/tags xargs -I {} git tag -d {} && git push origin --delete {}

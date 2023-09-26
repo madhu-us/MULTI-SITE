@@ -2,6 +2,8 @@ name: Delete Old Tags and Releases
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "30 17 * * *"
 
 jobs:
   delete_old_tags_and_releases:
